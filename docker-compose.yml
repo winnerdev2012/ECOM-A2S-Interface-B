@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  api:
+    container_name: fox_docker_api
+    restart: always
+    build: backend
+    ports:
+      - 5006:5006
+    networks:
+      - fox_api_network
+    depends_on:
+      - redis  
+  redis:
+    image: redis
+    volumes:
+      - ./redis.conf:/usr/local/etc/redis/redis.conf
+    ports:
+      - 6379:6379
+    networks:
+      - fox_api_network
+
+networks:
+  fox_api_network:
