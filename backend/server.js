@@ -27,7 +27,7 @@ app.use(express.urlencoded({ extended: false }));
 let redisClient;
 async function connectRedis() {
   redisClient = redis.createClient({
-    url: `redis://127.0.0.1:6379`,
+    url: `redis://127.0.0.1:6378`,
     legacyMode: true,
   });
 
